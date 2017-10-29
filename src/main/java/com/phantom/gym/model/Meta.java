@@ -5,13 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
 @Entity
-public class Dieta {
+public class Meta {
 
 	@Id
     @GeneratedValue
-    private int idDieta;
+    private int idMeta;
 	private String descripcion;
 	
 	@ManyToOne

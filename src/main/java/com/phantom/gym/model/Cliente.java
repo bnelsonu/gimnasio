@@ -16,24 +16,26 @@ public class Cliente {
 	
 	@Id
     @GeneratedValue
-    private int id;
+    private int idCliente;
 	private String nombre;
     private	String apellido1;
     private String apellido2;
     private String LugarTrabajo;
+    private String ocupación;
     private String correoPersonal;
     private boolean fumado;
     private boolean bebidasAlcoholicas;
+    private String telefono;
     @Enumerated(EnumType.STRING)
     private EstiloVida estiloVida;
     
-    @OneToMany(mappedBy="dieta")
+    @OneToMany(mappedBy="cliente")
 	@JsonIgnore
 	private Collection <Dieta> dietas = new ArrayList <Dieta> ();
     
-    @OneToMany(mappedBy="actividadFisica")
+    @OneToMany(mappedBy="cliente")
   	@JsonIgnore
-    private Collection <ActividadFisica> actividadesFisicas =  new ArrayList <ActividadFisica> ();
+    private Collection <Meta> metas =  new ArrayList <Meta> ();
     
 	public String getNombre() {
 		return nombre;
@@ -89,10 +91,22 @@ public class Cliente {
 	public void setDietas(Collection<Dieta> dietas) {
 		this.dietas = dietas;
 	}
-	public Collection<ActividadFisica> getActividadesFisicas() {
-		return actividadesFisicas;
+	public String getOcupación() {
+		return ocupación;
 	}
-	public void setActividadesFisicas(Collection<ActividadFisica> actividadesFisicas) {
-		this.actividadesFisicas = actividadesFisicas;
+	public void setOcupación(String ocupación) {
+		this.ocupación = ocupación;
+	}
+	public Collection<Meta> getMetas() {
+		return metas;
+	}
+	public void setMetas(Collection<Meta> metas) {
+		this.metas = metas;
+	}
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 }

@@ -12,31 +12,27 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class ActividadFisica {
+public class Medicamento {
 	@Id
     @GeneratedValue
-    private int idActividadFisica;
+    private int idMedicamento;
 	private String nombre;
-
+	
 	@ManyToMany(cascade=CascadeType.PERSIST)
-	@JoinTable(name = "actividadFisica_cliente", joinColumns = { @JoinColumn(name = "idActividadFisica") }, 
+	@JoinTable(name = "medicamento_cliente", joinColumns = { @JoinColumn(name = "idMedicamento") }, 
 	inverseJoinColumns = { @JoinColumn(name = "idCliente") })
 	private Collection <Cliente> clientes = new ArrayList <Cliente> ();
-		
+	
 	public String getNombre() {
 		return nombre;
 	}
-
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
 	public Collection<Cliente> getClientes() {
 		return clientes;
 	}
-
 	public void setClientes(Collection<Cliente> clientes) {
 		this.clientes = clientes;
 	}
-	
 }

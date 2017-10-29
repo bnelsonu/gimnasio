@@ -1,19 +1,20 @@
 package com.phantom.gym.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+@Entity
 public class AlimentosPreferidos {
 
 	@Id
     @GeneratedValue
-    private int id;
+    private int idAlimentosPreferidos;
 	private String nombre;
 	
 	@ManyToOne
-	@JoinColumn(name="id")
+	@JoinColumn(name="idValoracionDietetica")
 	ValoracionDietetica valoracionDietetica;
 	public String getNombre() {
 		return nombre;
